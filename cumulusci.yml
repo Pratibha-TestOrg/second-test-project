@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '3.86.0'
+project:
+    name: second-test-project
+    package:
+        name: second-test-project
+        api_version: '60.0'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/second-test-project/tests
+            options:
+                outputdir: robot/second-test-project/results
+
+    robot_testdoc:
+        options:
+            path: robot/second-test-project/tests
+            output: robot/second-test-project/doc/second-test-project_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
